@@ -20,6 +20,33 @@
                event:"mouseover"
             });
          });
+		 
+		 $(document).ready(function(){
+				$("#divContainer img").on({ 
+					mouseover: function(){
+						$(this).css({
+							'cursor': 'pointer',
+							'border-color': 'red'
+						});
+					},
+					
+					mouseout: function(){
+						$(this).css({
+							'cursor': 'default',
+							'border-color': 'grey'
+						});
+					},
+					
+					click: function(){
+						var imageURL = $(this).attr('src');
+						$("#mainImg").fadeOut(300, function(){
+							$(this).attr('src', imageURL); 
+						}).fadeIn(300);
+					}
+				
+				});
+			
+			});
       </script>
       <style>
          #tabs{font-size: 14px;}
@@ -33,7 +60,7 @@
 		
 		
 		
-		 
+<script>
 		
 function MM_preloadImages() { //v3.0
   var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
@@ -57,7 +84,10 @@ function MM_swapImage() { //v3.0
   var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
-        </script>
+</script>
+        <script>
+			
+		</script>
 		
 
 
@@ -116,12 +146,18 @@ function MM_swapImage() { //v3.0
             <p>Here is my car </p>
 			<div class="gallery">
 				<h1></h1>
-					<img class="img" src="images/thumbnails/7.jpg" alt="painting" title="car1">
-					<img class="img"  src="images/thumbnails/9.jpg" alt="painting" title="car2">
-					<img class="img"  src="images/thumbnails/14.jpg" alt="painting" title="car3">
-					<img class="img"  src="images/thumbnails/19.jpg" alt="painting" title="car4">
-					<img class="img" src="images/thumbnails/p_2.jpg" alt="painting" title="car5">
-					<img class="img" src="images/thumbnails/p_4.jpg" alt="painting" title="car6">
+				
+				<img id="mainImg" height="300"  width="230" style="border: 3px solid grey, text-align: center" src="images/thumbnails/7.jpg"/>
+				<br/>
+				<div id="divContainer">
+					<img class="imgStyle" src="images/thumbnails/7.jpg" alt="painting" title="car1">
+					<img class="imgStyle"  src="images/thumbnails/9.jpg" alt="painting" title="car2">
+					<img class="imgStyle"  src="images/thumbnails/14.jpg" alt="painting" title="car3">
+					<img class="imgStyle"  src="images/thumbnails/19.jpg" alt="painting" title="car4">
+					<img class="imgStyle" src="images/thumbnails/p_2.jpg" alt="painting" title="car5">
+					<img class="imgStyle" src="images/thumbnails/p_4.jpg" alt="painting" title="car6"> 
+				</div>
+					
 			</div> 
          </div>
          <div id="tabs-11">
